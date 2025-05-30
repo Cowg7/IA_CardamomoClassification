@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: cardamomo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: algoritmos
+    volumes:
+      - ./local_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: kgonzalezb9@miumg.edu.gt
+      PGADMIN_DEFAULT_PASSWORD: sistemas
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+volumes:
+  pgdata:
+  grafana_data:
