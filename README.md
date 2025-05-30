@@ -16,7 +16,6 @@ Sistema de visión artificial para clasificar cardamomo según su color utilizan
 - OpenCV
 - Pillow
 - psycopg2
-- Git LFS (si vas a subir modelos .h5 a GitHub)
 
 ## ⚙️ Instalación rápida
 
